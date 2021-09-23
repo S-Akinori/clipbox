@@ -24,7 +24,7 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const storage = firebase.storage();
 
-if(process.env.NEXT_PUBLIC_ANALYTICS_ID === 'local') {
+if(process.env.NEXT_PUBLIC_ENV === 'local') {
   auth.useEmulator("http://localhost:9099");
   // db.useEmulator("http://localhost", 8080);
   db.settings({

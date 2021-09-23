@@ -17,7 +17,7 @@ admin.initializeApp();
 const db = admin.firestore();
 
 // auth.useEmulator("http://localhost:9099");
-if(process.env.NEXT_PUBLIC_ANALYTICS_ID === 'local')
+if(process.env.NEXT_PUBLIC_ENV=== 'local')
 db.settings({
   host: "localhost:8080",
   ssl: false

@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/dist/shared/lib/head";
-import Image from 'next/image'
+// import Image from 'next/image'
 import styles from '../styles/Layout.module.css'
 import Header from "./Header";
 

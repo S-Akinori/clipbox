@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import Image from "next/dist/client/image";
+// import Image from "next/dist/client/image";
 import Link from "next/dist/client/link";
 import {db} from "../firebase/clientApp";
 import {useDocument} from "react-firebase-hooks/firestore";
@@ -24,7 +24,7 @@ function User({id, isImage = true, isName = true}: Prop): ReactElement {
       {value && 
         <Link href={`/user/${id}`}>
           <a className="flex items-center">
-            {isImage && <Image className="rounded-full w-16 h-16 object-cover" loading="lazy" src={value.data()?.photoURL} alt={value?.data()?.displayName} width="60" height="60" />}
+            {isImage && <img className="rounded-full w-16 h-16 object-cover" loading="lazy" src={value.data()?.photoURL} alt={value?.data()?.displayName} width="60" height="60" />}
             {isName && <p className="ml-2">{value?.data()?.displayName}</p>}
           </a>
         </Link>

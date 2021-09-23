@@ -218,3 +218,200 @@ INFO: Detected non-HTTP/2 connection.
 [debug] [2021-09-23T10:31:48.302Z] Sep 23, 2021 7:31:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
  {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 7:31:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T10:53:02.577Z] Sep 23, 2021 7:53:02 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
+INFO: Websocket client disconnected
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 7:53:02 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
+[debug] [2021-09-23T10:54:32.057Z] Sep 23, 2021 7:54:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 7:54:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T10:54:32.869Z] Sep 23, 2021 7:54:32 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 7:54:32 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
+[debug] [2021-09-23T10:57:43.107Z] Sep 23, 2021 7:57:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 7:57:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:03:34.415Z] Sep 23, 2021 8:03:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:03:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:04:13.145Z] File C:\Users\Sahoda Akinori\MyApps\clipbox\functions\src\index.ts changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\src\\index.ts changed, reloading triggers"}}
+[debug] [2021-09-23T11:04:14.149Z] [worker-pool] Shutting down IDLE worker (~diagnostic~) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (~diagnostic~)"}}
+[debug] [2021-09-23T11:04:14.149Z] [worker-~diagnostic~-900f4cd3-013c-4fce-8b81-69cc438c9503]: FINISHING {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-900f4cd3-013c-4fce-8b81-69cc438c9503]: FINISHING"}}
+[debug] [2021-09-23T11:04:14.170Z] [worker-pool] addWorker(~diagnostic~) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(~diagnostic~)"}}
+[debug] [2021-09-23T11:04:14.170Z] [worker-pool] Adding worker with key ~diagnostic~, total=2 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key ~diagnostic~, total=2"}}
+[debug] [2021-09-23T11:04:14.171Z] [worker-pool] submitWork(triggerId=) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=)"}}
+[debug] [2021-09-23T11:04:14.171Z] [worker-~diagnostic~-d63fcd8e-fa74-40ad-ad84-f65ceef23f76]: Assigning socketPath: \\?\pipe\C:\Users\Sahoda Akinori\MyApps\clipbox\functions\740 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-d63fcd8e-fa74-40ad-ad84-f65ceef23f76]: Assigning socketPath: \\\\?\\pipe\\C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\740"}}
+[debug] [2021-09-23T11:04:14.171Z] [worker-~diagnostic~-d63fcd8e-fa74-40ad-ad84-f65ceef23f76]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-d63fcd8e-fa74-40ad-ad84-f65ceef23f76]: BUSY"}}
+[debug] [2021-09-23T11:04:14.174Z] [worker-~diagnostic~-900f4cd3-013c-4fce-8b81-69cc438c9503]: exited {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-900f4cd3-013c-4fce-8b81-69cc438c9503]: exited"}}
+[debug] [2021-09-23T11:04:14.174Z] [worker-~diagnostic~-900f4cd3-013c-4fce-8b81-69cc438c9503]: FINISHED {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-900f4cd3-013c-4fce-8b81-69cc438c9503]: FINISHED"}}
+[debug] [2021-09-23T11:04:15.080Z] [runtime-status] [740] Functions runtime initialized. {"cwd":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions","node_version":"14.15.1"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\",\"node_version\":\"14.15.1\"}"}}
+[debug] [2021-09-23T11:04:15.083Z] [runtime-status] [740] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Disabled runtime features: undefined"}}
+[debug] [2021-09-23T11:04:15.088Z] [runtime-status] [740] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-23T11:04:15.096Z] [runtime-status] [740] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.5","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.5\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-23T11:04:15.099Z] [runtime-status] [740] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.5","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.5\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-23T11:04:15.102Z] [runtime-status] [740] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2021-09-23T11:04:15.103Z] [runtime-status] [740] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.5","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.5\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-23T11:04:15.187Z] [runtime-status] [740] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Checked functions.config() {\"config\":{}}"}}
+[debug] [2021-09-23T11:04:15.187Z] [runtime-status] [740] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.15.5","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-functions\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.15.5\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}}"}}
+[debug] [2021-09-23T11:04:15.188Z] [runtime-status] [740] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.5","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.5\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-23T11:04:15.190Z] [runtime-status] [740] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-23T11:04:15.191Z] [runtime-status] [740] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.5","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.5\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-23T11:04:15.191Z] [runtime-status] [740] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\Sahoda Akinori\\\\MyApps\\\\clipbox\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2021-09-23T11:04:15.195Z] [runtime-status] [740] initializeApp(DEFAULT) {"storageBucket":"my-react-project-db288.appspot.com","projectId":"my-react-project-db288"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [740] initializeApp(DEFAULT) {\"storageBucket\":\"my-react-project-db288.appspot.com\",\"projectId\":\"my-react-project-db288\"}"}}
+[debug] [2021-09-23T11:04:15.259Z] [worker-~diagnostic~-d63fcd8e-fa74-40ad-ad84-f65ceef23f76]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-d63fcd8e-fa74-40ad-ad84-f65ceef23f76]: IDLE"}}
+[debug] [2021-09-23T11:12:24.607Z] Sep 23, 2021 8:12:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:12:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:17:52.068Z] Sep 23, 2021 8:17:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:17:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:14.045Z] Sep 23, 2021 8:22:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:15.286Z] Sep 23, 2021 8:22:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:15.619Z] Sep 23, 2021 8:22:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:16.641Z] Sep 23, 2021 8:22:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:17.413Z] Sep 23, 2021 8:22:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:17.767Z] Sep 23, 2021 8:22:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:18.273Z] Sep 23, 2021 8:22:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:18.633Z] Sep 23, 2021 8:22:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:18.654Z] Sep 23, 2021 8:22:18 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreListenHandler onClose
+INFO: channel closed
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:18 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreListenHandler onClose\r\nINFO: channel closed\r\n"}}
+[debug] [2021-09-23T11:22:18.667Z] Sep 23, 2021 8:22:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:21.016Z] Sep 23, 2021 8:22:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:22:23.059Z] Sep 23, 2021 8:22:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:22:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:24:13.097Z] Sep 23, 2021 8:24:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:24:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:25:34.040Z] Sep 23, 2021 8:25:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:25:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:26:47.042Z] Sep 23, 2021 8:26:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:26:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:43:13.824Z] Sep 23, 2021 8:43:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:43:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:43:15.879Z] Sep 23, 2021 8:43:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:43:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:43:17.905Z] Sep 23, 2021 8:43:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:43:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:47:03.769Z] Sep 23, 2021 8:47:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:47:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:47:39.438Z] Sep 23, 2021 8:47:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:47:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T11:47:39.790Z] Sep 23, 2021 8:47:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:47:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T11:48:11.220Z] Sep 23, 2021 8:48:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:48:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:48:11.485Z] Sep 23, 2021 8:48:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:48:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T11:49:11.513Z] Sep 23, 2021 8:49:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:49:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:50:11.874Z] Sep 23, 2021 8:50:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:50:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:51:11.910Z] Sep 23, 2021 8:51:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:51:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:52:12.265Z] Sep 23, 2021 8:52:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:52:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:53:12.602Z] Sep 23, 2021 8:53:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:53:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:53:26.414Z] Sep 23, 2021 8:53:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:53:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:53:28.443Z] Sep 23, 2021 8:53:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:53:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:53:30.477Z] Sep 23, 2021 8:53:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:53:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:53:36.719Z] Sep 23, 2021 8:53:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:53:36 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T11:53:37.059Z] Sep 23, 2021 8:53:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:53:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T11:54:37.085Z] Sep 23, 2021 8:54:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:54:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T11:55:22.603Z] Sep 23, 2021 8:55:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:55:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:55:22.962Z] Sep 23, 2021 8:55:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:55:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:56:22.966Z] Sep 23, 2021 8:56:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:56:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T11:56:22.998Z] Sep 23, 2021 8:56:22 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreListenHandler onClose
+INFO: channel closed
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 8:56:22 PM com.google.cloud.datastore.emulator.firestore.webchannel.FirestoreV1WebChannelAdapter$FirestoreListenHandler onClose\r\nINFO: channel closed\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T12:01:14.807Z] Sep 23, 2021 9:01:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 9:01:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T12:01:15.088Z] Sep 23, 2021 9:01:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 9:01:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T12:02:15.134Z] Sep 23, 2021 9:02:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 9:02:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[warn] !  com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\Users\Sahoda Akinori\MyApps\clipbox\storage.rules line [9], column [29]. Null value error. {"metadata":{"emulator":{"name":"storage"},"message":"com.google.firebase.rules.runtime.common.EvaluationException: Error: C:\\Users\\Sahoda Akinori\\MyApps\\clipbox\\storage.rules line [9], column [29]. Null value error."}}
+[debug] [2021-09-23T12:03:13.256Z] Sep 23, 2021 9:03:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 9:03:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T12:03:13.618Z] Sep 23, 2021 9:03:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Sep 23, 2021 9:03:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 9:03:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nSep 23, 2021 9:03:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T12:04:13.701Z] Sep 23, 2021 9:04:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 9:04:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T12:04:15.037Z] Sep 23, 2021 9:04:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 9:04:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-23T12:04:17.063Z] Sep 23, 2021 9:04:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 23, 2021 9:04:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}

@@ -136,7 +136,7 @@ const ShowUserPage = () => {
       {user && !loading && 
         <div className="max-w-xl">
           <div className="py-4 flex items-center">
-            <Image className="rounded-full" loading="lazy" src={user.photoURL as string} alt={user.displayName as string} width="60" height="60" />
+            <img className="rounded-full" loading="lazy" src={user.photoURL as string} alt={user.displayName as string} width="60" height="60" />
             <span>{user.displayName}</span>
           </div>
           <div className="my-4">
@@ -159,7 +159,7 @@ const ShowUserPage = () => {
                     </div>
                   </div>
                   <div className="flex items-center py-3">
-                    <Image id="preview" src={user.photoURL!} width="60" height="60" className="rounded-full w-20 h-20 object-cover" />
+                    <img id="preview" src={user.photoURL!} width="60" height="60" className="rounded-full w-20 h-20 object-cover" />
                     <div className="ml-3">
                       <Input
                         type="file" 
