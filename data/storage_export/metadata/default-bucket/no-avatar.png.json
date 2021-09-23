@@ -1,0 +1,19 @@
+{
+  "name": "no-avatar.png",
+  "bucket": "default-bucket",
+  "contentType": "image/png",
+  "metageneration": 1,
+  "generation": 1631707313417,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "downloadTokens": [
+    "a284a7f8-1473-48fd-a1c4-ec48f09d867b"
+  ],
+  "timeCreated": "2021-09-15T12:01:53.416Z",
+  "updated": "2021-09-15T12:01:53.423Z",
+  "size": 15076,
+  "md5Hash": "WgIauVtNKgyOdRHEDKe7Lw==",
+  "crc32c": "2547611291"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "videos/Beach - 79773.mp4",
+  "bucket": "default-bucket",
+  "contentType": "video/mp4",
+  "metageneration": 1,
+  "generation": 1631529853382,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "customMetadata": {
+    "uid": "fA1IGUqupkpAvIsiWItNuzy8cMuP",
+    "title": "ビーチえちえち",
+    "description": "ビーチの動画です。夏系の動画に最適ですよ～～\n楽しい演出も可能です！\n頑張りましょう。"
+  },
+  "downloadTokens": [
+    "10747880-08fd-41ab-b84b-a98fbf5fdc7c"
+  ],
+  "timeCreated": "2021-09-13T10:44:13.381Z",
+  "updated": "2021-09-13T10:44:13.426Z",
+  "size": 10059168,
+  "md5Hash": "HNoul8rBt7jY8geFE5sr5A==",
+  "crc32c": "127573086"
+}

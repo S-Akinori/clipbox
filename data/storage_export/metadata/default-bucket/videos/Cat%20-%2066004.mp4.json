@@ -1,0 +1,24 @@
+{
+  "name": "videos/Cat - 66004.mp4",
+  "bucket": "default-bucket",
+  "contentType": "video/mp4",
+  "metageneration": 1,
+  "generation": 1631861433617,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "customMetadata": {
+    "uid": "fA1IGUqupkpAvIsiWItNuzy8cMuP",
+    "title": "猫は正義",
+    "description": "「犬派ですか？猫派ですか？」という議論は絶えませんが、私はハム太郎派ですよ。"
+  },
+  "downloadTokens": [
+    "f5a3ad85-3cb5-4bb2-b327-e7ef367745a1"
+  ],
+  "timeCreated": "2021-09-17T06:50:33.616Z",
+  "updated": "2021-09-17T06:50:33.686Z",
+  "size": 6154277,
+  "md5Hash": "D/rEsOPyJyA2dNFQ7LBXhw==",
+  "crc32c": "3664441803"
+}

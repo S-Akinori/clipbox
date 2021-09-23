@@ -1,0 +1,24 @@
+{
+  "name": "videos/Skyscrapers - 80724.mp4",
+  "bucket": "default-bucket",
+  "contentType": "video/mp4",
+  "metageneration": 1,
+  "generation": 1631711958503,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "customMetadata": {
+    "uid": "PVeWQH0Ax49wjOYHUWUr1EzCB92H",
+    "title": "ビルの屋上でビール",
+    "description": "ビルの動画です。"
+  },
+  "downloadTokens": [
+    "ece14d87-9ca2-479c-8431-278945224a6e"
+  ],
+  "timeCreated": "2021-09-15T13:19:18.502Z",
+  "updated": "2021-09-15T13:19:18.597Z",
+  "size": 24277994,
+  "md5Hash": "RWGwpuMIPiMzTjqlWbW4Vw==",
+  "crc32c": "1548994331"
+}

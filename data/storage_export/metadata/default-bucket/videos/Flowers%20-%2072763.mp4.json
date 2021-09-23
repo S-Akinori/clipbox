@@ -1,0 +1,24 @@
+{
+  "name": "videos/Flowers - 72763.mp4",
+  "bucket": "default-bucket",
+  "contentType": "video/mp4",
+  "metageneration": 1,
+  "generation": 1631708583919,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "customMetadata": {
+    "uid": "PVeWQH0Ax49wjOYHUWUr1EzCB92H",
+    "title": "花は、甚だしく、華やか",
+    "description": "花は美しいですよね。まあ、そんなこと言ってる私も美しいわけですが。。。\nってね、てへぺろ！"
+  },
+  "downloadTokens": [
+    "3cc82f54-673d-4aa8-924b-3900a10d3786"
+  ],
+  "timeCreated": "2021-09-15T12:23:03.918Z",
+  "updated": "2021-09-15T12:23:04.002Z",
+  "size": 7725753,
+  "md5Hash": "C0q06MxeBmhJ1f/4a24H3g==",
+  "crc32c": "207857073"
+}

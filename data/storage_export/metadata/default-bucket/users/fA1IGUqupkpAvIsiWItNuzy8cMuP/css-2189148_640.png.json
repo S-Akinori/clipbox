@@ -1,0 +1,19 @@
+{
+  "name": "users/fA1IGUqupkpAvIsiWItNuzy8cMuP/css-2189148_640.png",
+  "bucket": "default-bucket",
+  "contentType": "image/png",
+  "metageneration": 1,
+  "generation": 1631788524753,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "downloadTokens": [
+    "9a9d0940-921a-46df-9cad-8b78cafaec89"
+  ],
+  "timeCreated": "2021-09-16T10:35:24.752Z",
+  "updated": "2021-09-16T10:35:24.752Z",
+  "size": 56189,
+  "md5Hash": "FYafhukWUJxQYPgxqK/6xg==",
+  "crc32c": "2194642459"
+}

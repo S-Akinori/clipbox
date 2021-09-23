@@ -1,0 +1,29 @@
+{
+  "name": "videos/Woman - 63241.mp4",
+  "bucket": "default-bucket",
+  "contentType": "video/mp4",
+  "metageneration": 1,
+  "generation": 1632149155735,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "customMetadata": {
+    "uid": "fA1IGUqupkpAvIsiWItNuzy8cMuP",
+    "title": "マスク女性の歩き方",
+    "description": "コロナ時代を頑張って乗り越えましょう！",
+    "tags": [
+      "コロナ",
+      "マスク",
+      "女性"
+    ]
+  },
+  "downloadTokens": [
+    "4f189ccb-f85e-4b04-b34d-3b1a2c8c2af4"
+  ],
+  "timeCreated": "2021-09-20T14:45:55.734Z",
+  "updated": "2021-09-20T14:45:55.792Z",
+  "size": 14115374,
+  "md5Hash": "1jEpIlyw7j6H2FmkcwdqsQ==",
+  "crc32c": "2153265543"
+}
