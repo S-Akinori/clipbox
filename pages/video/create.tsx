@@ -44,8 +44,8 @@ const CreateVideoPage = () => {
 
   const onSubmit: SubmitHandler<FormValue> = (data) => {
     data.tags = tagValues
-    const tags = data.tags.split(',')
-    console.log(tags)
+    const tags:string[] = data.tags.split(',')
+    
     if(tags.length > 3) {
       setError('tags', {
         type: 'manual',
@@ -60,11 +60,23 @@ const CreateVideoPage = () => {
         'uid': user?.uid,
         'title': data.title,
         'description': data.description,
-        'tags': tags
+        'tags': tagValues
       }
     }
     fileRef.put(data.video[0], metadata).then((res) => {
-      console.log('uploaded')
+      console.log('uploaded: ', res)
+      db.collection('videos')
+        .add({
+          uid: user?.uid,
+          filename: res.metadata.fullPath,
+          title: res.metadata.customMetadata?.title,
+          description: res.metadata.customMetadata?.description,
+          createdAt: res.metadata.timeCreated,
+          size: res.metadata.size,
+          downloadCount: 0,
+          tags: tags
+        })
+
       router.push('/video')
     })
   }
