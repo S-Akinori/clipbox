@@ -44,7 +44,9 @@ const ShowVideoPage = () => {
     storage.ref().child(value?.data()?.filename).getDownloadURL()
     .then( async (url) => {
       console.log(url)
-      const data = await fetch(url);
+      const data = await fetch(url, {
+        mode: 'cors'
+      });
       const blob = await data.blob()
       saveAs(blob);
       db.doc('/videos/' + id).update({
