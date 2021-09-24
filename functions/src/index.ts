@@ -2,14 +2,6 @@ import * as functions from "firebase-functions";
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
-export const helloWorld = functions.https.onRequest((request, response) => {
-  functions.logger.info("Hello logs!", {structuredData: true});
-  response.send("Hello from Firebase!");
-});
-
-exports.getUser = functions.https.onCall((data, context) => {
-  return {data: data, auth: context.auth}
-})
 
 const admin = require("firebase-admin");
 admin.initializeApp();
@@ -23,7 +15,7 @@ db.settings({
   ssl: false
 })
 
-export const createUserDocument = functions.auth.user().onCreate((user, context) => {
+export const createUserDocument = functions.region('asia-northeast1').auth.user().onCreate((user, context) => {
   if(!user.displayName) {
     const str = "0123456789";
     const len = 6
@@ -34,7 +26,7 @@ export const createUserDocument = functions.auth.user().onCreate((user, context)
     user.displayName = userName
   }
   if(!user.photoURL) {
-    user.photoURL = 'https://akiblog10.com/wp-content/uploads/2021/09/no-avatar.png';
+    user.photoURL = 'https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/no-avatar.png?alt=media&token=d6885cd9-c468-4c24-860b-70f3a482e23e';
   }
   console.log(user);
   db.collection("users")
@@ -42,7 +34,7 @@ export const createUserDocument = functions.auth.user().onCreate((user, context)
     .set(JSON.parse(JSON.stringify(user)));
 });
 
-export const createVideoDocument = functions.storage.object().onFinalize((object, context) => {
+export const createVideoDocument = functions.region('asia-northeast1').storage.object().onFinalize((object, context) => {
   const uid = object.metadata?.uid
   console.log(uid);
   if(uid) {

@@ -1,5 +1,6 @@
 import React from "react";
 // import Image from "next/dist/client/image";
+import User from "./User";
 import Link from "next/dist/client/link";
 import { auth } from "../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -18,7 +19,7 @@ const Header = () => {
         {user &&
           <Link href={`/user/${user?.uid}`}>
             <a className="flex items-center">
-              <img className="rounded-full" loading="lazy" src={user.photoURL as string} alt={user.displayName as string} width="60" height="60" />
+              <User id={user.uid} isName={false} />
             </a>
           </Link>
         }

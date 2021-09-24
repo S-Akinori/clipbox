@@ -5,7 +5,7 @@ import {db} from "../firebase/clientApp";
 import {useDocument} from "react-firebase-hooks/firestore";
 
 interface Prop {
-  id?: string,
+  id: string,
   isImage?: boolean,
   isName?: boolean
 }
