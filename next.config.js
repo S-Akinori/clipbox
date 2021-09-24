@@ -3,7 +3,7 @@ module.exports = {
   reactStrictMode: true,
   images: {
     domains: ['localhost', 'firebasestorage.googleapis.com']
-  }
+  },
   async header() {
     return [
       {
