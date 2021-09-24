@@ -108,7 +108,7 @@ const Video = () => {
       <>
         <div className="">
           <Button onClick={() => toggleDrawer(true)} className="md:hidden">条件<ArrowRightIcon /></Button>
-          <Drawer anchor='left' open={(isBreakPoint) ? true : drawerState} onClose={() => toggleDrawer(false)} variant={(isBreakPoint) ? 'persistent' : 'temporary'} classes={{paper: 'p-4 md:top-20 w-72 md:w-1/3'}}>
+          <Drawer anchor='left' open={(isBreakPoint) ? true : drawerState} onClose={() => toggleDrawer(false)} variant={(isBreakPoint) ? 'persistent' : 'temporary'} classes={{paper: 'p-4 md:top-28 h-3/4 w-72 md:w-1/3'}}>
             <Button className="absolute top-2 right-2 z-50 md:hidden" onClick={() => toggleDrawer(false)}><ArrowLeftIcon /></Button>
             <FormControl component="fieldset">
               <FormLabel>条件</FormLabel>
