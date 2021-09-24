@@ -1,4 +1,5 @@
 import * as functions from "firebase-functions";
+import { UserRecord } from "firebase-functions/v1/auth";
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
@@ -36,10 +37,13 @@ export const createUserDocument = functions.region('asia-northeast1').auth.user(
   admin.auth().updateUser(user.uid, {
     displayName: user.displayName,
     photoURL: user.photoURL
+  }).then((userRecord: UserRecord) => {
+    // See the UserRecord reference doc for the contents of userRecord.
+    console.log('Successfully updated user', userRecord.toJSON());
+    db.collection("users")
+      .doc(userRecord.uid)
+      .set(JSON.parse(JSON.stringify(userRecord)));
   })
-  db.collection("users")
-    .doc(user.uid)
-    .set(JSON.parse(JSON.stringify(user)));
 });
 
 export const createVideoDocument = functions.region('asia-northeast1').storage.object().onFinalize((object, context) => {
