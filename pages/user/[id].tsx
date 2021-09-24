@@ -137,7 +137,8 @@ const ShowUserPage = () => {
       {user && !loading && 
         <div className="max-w-xl">
           <div className="py-4 flex items-center">
-            <User id={user.uid} />
+            <img className="rounded-full w-16 h-16 object-cover mr-4" loading="lazy" src={user?.photoURL as string} alt={user?.displayName as string} width="60" height="60" />
+            <span>{user.displayName}</span>
           </div>
           <div className="my-4">
             <Accordion>

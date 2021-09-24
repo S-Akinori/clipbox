@@ -19,7 +19,7 @@ const Header = () => {
         {user &&
           <Link href={`/user/${user?.uid}`}>
             <a className="flex items-center">
-              <User id={user.uid} isName={false} />
+              <img className="rounded-full w-16 h-16 object-cover" loading="lazy" src={user?.photoURL as string} alt={user?.displayName as string} width="60" height="60" />
             </a>
           </Link>
         }

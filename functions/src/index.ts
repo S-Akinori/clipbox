@@ -11,9 +11,7 @@ const db = admin.firestore();
 
 // auth.useEmulator("http://localhost:9099");
 if(process.env.NEXT_PUBLIC_ENV=== 'local') {
-  auth.settings({
-    host: "localhost:9099"
-  })
+  auth.useEmulator("http://localhost:9099")
   db.settings({
     host: "localhost:8080",
     ssl: false
@@ -21,22 +19,24 @@ if(process.env.NEXT_PUBLIC_ENV=== 'local') {
 }
 
 export const createUserDocument = functions.region('asia-northeast1').auth.user().onCreate((user, context) => {
-  if(!user.displayName) {
+  let displayName = user.displayName
+  let photoURL = user.photoURL
+  if(!displayName) {
     const str = "0123456789";
     const len = 6
     let userName = "user_";
     for(let i = 0; i < len; i++){
       userName += str.charAt(Math.floor(Math.random() * str.length));
     }
-    user.displayName = userName
+    displayName = userName
   }
-  if(!user.photoURL) {
-    user.photoURL = 'https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/no-avatar.png?alt=media&token=d6885cd9-c468-4c24-860b-70f3a482e23e';
+  if(!photoURL) {
+    photoURL = 'https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/no-avatar.png?alt=media&token=d6885cd9-c468-4c24-860b-70f3a482e23e';
   }
-  console.log(user);
+
   admin.auth().updateUser(user.uid, {
-    displayName: user.displayName,
-    photoURL: user.photoURL
+    displayName: displayName,
+    photoURL: photoURL
   }).then((userRecord: UserRecord) => {
     // See the UserRecord reference doc for the contents of userRecord.
     console.log('Successfully updated user', userRecord.toJSON());
