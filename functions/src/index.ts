@@ -5,15 +5,19 @@ import * as functions from "firebase-functions";
 
 const admin = require("firebase-admin");
 admin.initializeApp();
-// const auth = admin.auth();
+const auth = admin.auth();
 const db = admin.firestore();
 
 // auth.useEmulator("http://localhost:9099");
-if(process.env.NEXT_PUBLIC_ENV=== 'local')
-db.settings({
-  host: "localhost:8080",
-  ssl: false
-})
+if(process.env.NEXT_PUBLIC_ENV=== 'local') {
+  auth.settings({
+    host: "localhost:9099"
+  })
+  db.settings({
+    host: "localhost:8080",
+    ssl: false
+  })
+}
 
 export const createUserDocument = functions.region('asia-northeast1').auth.user().onCreate((user, context) => {
   if(!user.displayName) {
@@ -29,6 +33,10 @@ export const createUserDocument = functions.region('asia-northeast1').auth.user(
     user.photoURL = 'https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/no-avatar.png?alt=media&token=d6885cd9-c468-4c24-860b-70f3a482e23e';
   }
   console.log(user);
+  admin.auth().updateUser(user.uid, {
+    displayName: user.displayName,
+    photoURL: user.photoURL
+  })
   db.collection("users")
     .doc(user.uid)
     .set(JSON.parse(JSON.stringify(user)));

@@ -8,6 +8,7 @@ import {Accordion, AccordionSummary, AccordionDetails, Typography, TextField, In
 import { ExpandMore } from "@material-ui/icons";
 import Layout from "../../components/Layout";
 import Button from "../../components/Button"
+import User from "../../components/User"
 
 interface Messages {
   profile: string,
@@ -136,8 +137,7 @@ const ShowUserPage = () => {
       {user && !loading && 
         <div className="max-w-xl">
           <div className="py-4 flex items-center">
-            <img className="rounded-full" loading="lazy" src={user.photoURL as string} alt={user.displayName as string} width="60" height="60" />
-            <span>{user.displayName}</span>
+            <User id={user.uid} />
           </div>
           <div className="my-4">
             <Accordion>
