@@ -45,7 +45,7 @@ const ShowVideoPage = () => {
     .then( async (url) => {
       console.log(url)
       const data = await fetch(url, {
-        mode: 'no-cors'
+        mode: 'cors'
       });
       const blob = await data.blob()
       saveAs(blob);
