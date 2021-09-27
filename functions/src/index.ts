@@ -6,10 +6,12 @@ import { UserRecord } from "firebase-functions/v1/auth";
 import * as admin from 'firebase-admin'
 import fetch from 'node-fetch'
 
-admin.initializeApp();
+admin.initializeApp({
+  storageBucket: 'default-bucket'
+});
 const auth = admin.auth();
 const db = admin.firestore();
-// const storage = admin.storage()
+const storage = admin.storage()
 
 // if local, use emulators
 if(process.env.NODE_ENV === 'development') {
@@ -103,26 +105,58 @@ export const createTagDocument = functions.region('asia-northeast1').firestore.d
 })
 
 export const downloadVideo = functions.https.onCall(async (data, context) => {
+  // const buketName = 'default-bucket'
+  // const url = `http://localhost:9199/v0/b/${buketName}/o/${encodeURIComponent(data.filename)}?alt=media`;
+  // console.log(url)
+
+  const bucket = storage.bucket()
+  const url = bucket.file(data.filename).publicUrl()
+  console.log(url)
+  const videoData = await fetch(url)
+  console.log(videoData)
+  return videoData
+
+  // const bucket = storage.bucket()
+  // const file = bucket.file(data.filename)
+  // return file
+  // const url = await bucket.file(data.filename).getSignedUrl({
+  //   action: 'read',
+  //   expires: '12-31-3020'
+  // })
+  // console.log(url)
+  // return url;
+
+  // console.log('bucket: ', bucket.name)
+  // const file = bucket.file(data.filename).get()
+  // bucket.file(data.filename).get().then(res => {
+  //   console.log('res: ', res[0])
+  // })
+  
+  // console.log(file)
+  // return file
+  // return bucket.file(data.filename).download((error, contents) => {
+  //   console.log(contents)
+  // })
   // const bucket = storage.bucket()
   // const [url] = await bucket.file(data.filename).getSignedUrl({
     //   action: 'read',
     //   expires: '12-31-3020'
     // })
 
-  const buketName = 'default-bucket'
+  // const buketName = 'default-bucket'
 
-  const url = `http://localhost:9199/v0/b/${buketName}/o/${encodeURIComponent(data.filename)}?alt=media`;
-  console.log('url: ', url)
+  // const url = `http://localhost:9199/v0/b/${buketName}/o/${encodeURIComponent(data.filename)}?alt=media`;
+  // console.log('url: ', url)
 
-  if(!url) {
-    console.log('url is not found')
-    throw new functions.https.HttpsError('invalid-argument', 'url is not found', data)
-  }
+  // if(!url) {
+  //   console.log('url is not found')
+  //   throw new functions.https.HttpsError('invalid-argument', 'url is not found', data)
+  // }
 
-  const videoData = await fetch(url)
+  // const videoData = await fetch(url)
   // console.log('videoData: ', videoData.json())
   // const blob = await videoData.blob()
   // console.log('videoDataBlob: ', blob)
   
-  return {videoData: videoData.blob()};
+  // return {videoData: videoData.blob()};
 })

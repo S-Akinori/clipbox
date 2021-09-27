@@ -65,6 +65,15 @@ const ShowVideoPage = () => {
     //   .then(response => {
     //     console.log(response)
     //     console.log(response.data)
+    //     // const blob = response.data.blob()
+    //     // saveAs(blob)
+    //   })
+    // }
+    // if(value) {
+    //   downloadVideo({filename: value.data()?.filename})
+    //   .then(response => {
+    //     console.log(response)
+    //     console.log(response.data)
     //     saveAs(response.data)
     //   }).catch((error) => {
     //     console.log(error.code);
@@ -74,15 +83,15 @@ const ShowVideoPage = () => {
     // }
     storage.ref().child(value?.data()?.filename).getDownloadURL()
     .then( async (url) => {
-      // console.log(url)
-      // const data = await fetch(url, {
-      //   mode: 'cors'
-      // });
-      // const blob = await data.blob()
+      console.log(url)
+      const data = await fetch(url, {
+        mode: 'cors'
+      });
+      const blob = await data.blob()
       saveAs(url);
-      // db.doc('/videos/' + id).update({
-      //   downloadCount: value?.data()?.downloadCount + 1
-      // })
+      db.doc('/videos/' + id).update({
+        downloadCount: value?.data()?.downloadCount + 1
+      })
     })
     .catch((error) => {
       console.log('Error: ', error);
