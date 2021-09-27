@@ -59,6 +59,16 @@ const ShowVideoPage = () => {
       return
     }
 
+    if(value) {
+      const url = `https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/${encodeURIComponent(value.data()?.filename)}?alt=media`;
+
+      const data = await fetch(url, {
+          mode: 'cors'
+        });
+      const blob = await data.blob()
+      saveAs(blob);
+    }
+
     // const downloadVideo = functions.httpsCallable('downloadVideo')
     // if(value) {
     //   downloadVideo({filename: value.data()?.filename})
@@ -81,18 +91,18 @@ const ShowVideoPage = () => {
     //     console.log( error.details);
     //   });
     // }
-    storage.ref().child(value?.data()?.filename).getDownloadURL()
-    .then( async (url) => {
-      console.log(url)
-      const data = await fetch(url, {
-        mode: 'cors'
-      });
-      const blob = await data.blob()
-      saveAs(blob);
-      db.doc('/videos/' + id).update({
-        downloadCount: value?.data()?.downloadCount + 1
-      })
-    })
+    // storage.ref().child(value?.data()?.filename).getDownloadURL()
+    // .then( async (url) => {
+    //   console.log(url)
+    //   const data = await fetch(url, {
+    //     mode: 'cors'
+    //   });
+    //   const blob = await data.blob()
+    //   saveAs(blob);
+    //   db.doc('/videos/' + id).update({
+    //     downloadCount: value?.data()?.downloadCount + 1
+    //   })
+    // })
     .catch((error) => {
       console.log('Error: ', error);
     })
