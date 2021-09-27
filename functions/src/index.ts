@@ -4,12 +4,15 @@ import { UserRecord } from "firebase-functions/v1/auth";
 // // https://firebase.google.com/docs/functions/typescript
 //
 import * as admin from 'firebase-admin'
+import fetch from 'node-fetch'
+
 admin.initializeApp();
 const auth = admin.auth();
 const db = admin.firestore();
+// const storage = admin.storage()
 
 // if local, use emulators
-if(process.env.NEXT_PUBLIC_ENV === 'local') {
+if(process.env.NODE_ENV === 'development') {
   db.settings({
     host: "localhost:8080",
     ssl: false
@@ -97,4 +100,29 @@ export const createTagDocument = functions.region('asia-northeast1').firestore.d
   // } else {
   //   console.log("Could not find uid")
   // }
+})
+
+export const downloadVideo = functions.https.onCall(async (data, context) => {
+  // const bucket = storage.bucket()
+  // const [url] = await bucket.file(data.filename).getSignedUrl({
+    //   action: 'read',
+    //   expires: '12-31-3020'
+    // })
+
+  const buketName = 'default-bucket'
+
+  const url = `http://localhost:9199/v0/b/${buketName}/o/${encodeURIComponent(data.filename)}?alt=media`;
+  console.log('url: ', url)
+
+  if(!url) {
+    console.log('url is not found')
+    throw new functions.https.HttpsError('invalid-argument', 'url is not found', data)
+  }
+
+  const videoData = await fetch(url)
+  // console.log('videoData: ', videoData.json())
+  // const blob = await videoData.blob()
+  // console.log('videoDataBlob: ', blob)
+  
+  return {videoData: videoData.blob()};
 })

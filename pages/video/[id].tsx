@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/dist/client/router";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
-import { db, storage, auth } from "../../firebase/clientApp";
+import { db, storage, auth, functions } from "../../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDownloadURL } from "react-firebase-hooks/storage";
 import { saveAs } from "file-saver";
@@ -11,18 +11,35 @@ import Layout from "../../components/Layout";
 import User from "../../components/User";
 import Button from "../../components/Button";
 import Link from "next/dist/client/link";
+import { GetStaticPaths, GetServerSideProps, GetStaticProps, GetStaticPropsContext } from "next";
 
 interface Errors {
   download: string
 }
 
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   return {
+//     paths: [],
+//     fallback: true
+//   }
+// }
+// export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+//   const videoId = context.params?.id
+//   const video = await db.collection('videos').doc(videoId as string).get()
+//   // const url = await storage.ref().child(video?.data()?.filename).getDownloadURL()
+//   return {
+//     props: {
+//       videoId
+//     }
+//   }
+// }
 const ShowVideoPage = () => {
   const router = useRouter()
   const {id} = router.query
   const [user, authLoading, authError] = useAuthState(auth)
   const [errors, setErrors] = useState<Errors>({download: ''});
   const [query, setQuery] = useState(db.collection('videos').limit(50))
-  const [value, loading, error] = useDocument(
+  const [value, loading, err] = useDocument(
     db.doc('/videos/' + id),
     {}
   )
@@ -32,7 +49,7 @@ const ShowVideoPage = () => {
 
   useEffect(() => {
     if(value) {
-      setQuery(db.collection('videos').where('tags', 'array-contains-any', value?.data()?.tags))
+      setQuery(db.collection('videos').where('tags', 'array-contains-any', value.data()?.tags))
     }
   }, [value])
 
@@ -41,17 +58,31 @@ const ShowVideoPage = () => {
       setErrors({download: 'ログインしてください'})
       return
     }
+
+    // const downloadVideo = functions.httpsCallable('downloadVideo')
+    // if(value) {
+    //   downloadVideo({filename: value.data()?.filename})
+    //   .then(response => {
+    //     console.log(response)
+    //     console.log(response.data)
+    //     saveAs(response.data)
+    //   }).catch((error) => {
+    //     console.log(error.code);
+    //     console.log( error.message);
+    //     console.log( error.details);
+    //   });
+    // }
     storage.ref().child(value?.data()?.filename).getDownloadURL()
     .then( async (url) => {
-      console.log(url)
-      const data = await fetch(url, {
-        mode: 'cors'
-      });
-      const blob = await data.blob()
-      saveAs(blob);
-      db.doc('/videos/' + id).update({
-        downloadCount: value?.data()?.downloadCount + 1
-      })
+      // console.log(url)
+      // const data = await fetch(url, {
+      //   mode: 'cors'
+      // });
+      // const blob = await data.blob()
+      saveAs(url);
+      // db.doc('/videos/' + id).update({
+      //   downloadCount: value?.data()?.downloadCount + 1
+      // })
     })
     .catch((error) => {
       console.log('Error: ', error);

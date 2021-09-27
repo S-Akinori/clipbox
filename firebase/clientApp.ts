@@ -23,18 +23,15 @@ const app = firebase.app();
 const auth = firebase.auth();
 const db = firebase.firestore();
 const storage = firebase.storage();
+const functions = firebase.functions()
 
-if(process.env.NEXT_PUBLIC_ENV === 'local') {
-  auth.useEmulator("http://localhost:9099");
-  // db.useEmulator("http://localhost", 8080);
-  db.settings({
-    host: "localhost:8080",
-    ssl: false
-  });
-  firebase.functions().useEmulator("localhost", 5001);
-  storage.useEmulator("localhost", 9199);
-  console.log('Local Dev')
+if(process.env.NODE_ENV === 'development' && typeof window !== "undefined") {
+    auth.useEmulator("http://localhost:9099");
+    db.useEmulator("localhost", 8080)
+    functions.useEmulator("localhost", 5001);
+    storage.useEmulator("localhost", 9199);
+    console.log('Local Dev')
 }
 
-export {auth, db, storage}
+export {auth, db, storage, functions}
 export default firebase

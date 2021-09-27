@@ -1,5 +1,6 @@
 import styles from '../styles/Home.module.css'
 import Link from "next/dist/client/link";
+import { GetStaticProps } from 'next';
 import {auth} from '../firebase/clientApp'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Auth from '../components/auth/SignInForm.tsx'
