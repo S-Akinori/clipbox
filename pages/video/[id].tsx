@@ -88,7 +88,7 @@ const ShowVideoPage = () => {
         mode: 'cors'
       });
       const blob = await data.blob()
-      saveAs(url);
+      saveAs(blob);
       db.doc('/videos/' + id).update({
         downloadCount: value?.data()?.downloadCount + 1
       })
