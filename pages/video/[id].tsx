@@ -53,7 +53,7 @@ const ShowVideoPage = () => {
     }
   }, [value])
 
-  const downloadVideo = () => {
+  const downloadVideo = async () => {
     if(!user) {
       setErrors({download: 'ログインしてください'})
       return
@@ -103,9 +103,9 @@ const ShowVideoPage = () => {
     //     downloadCount: value?.data()?.downloadCount + 1
     //   })
     // })
-    .catch((error) => {
-      console.log('Error: ', error);
-    })
+    // .catch((error) => {
+    //   console.log('Error: ', error);
+    // })
   }
   
   return(
