@@ -23,7 +23,7 @@ export async function createCheckoutSession(uid: string) {
       // Init Stripe
       console.log(sessionId)
       const stripe = await getStripe();
-      stripe?.redirectToCheckout(sessionId);
+      stripe?.redirectToCheckout({sessionId});
     }
   });
 }
