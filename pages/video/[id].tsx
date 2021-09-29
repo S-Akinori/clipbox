@@ -66,7 +66,10 @@ const ShowVideoPage = () => {
           mode: 'cors'
         });
       const blob = await data.blob()
-      saveAs(blob);
+      saveAs(blob)
+      db.doc('/videos/' + id).update({
+        downloadCount: value?.data()?.downloadCount + 1
+      })
     }
 
     // const downloadVideo = functions.httpsCallable('downloadVideo')
@@ -143,7 +146,7 @@ const ShowVideoPage = () => {
                 <>
                 {videos.docs.map((doc, index) => (
                   <div key={doc.id}>
-                    <Link href={`video/${doc.id}`}><a>
+                    <Link href={`/video/${doc.id}`}><a>
                       {doc.data().title}
                       <EmbedVideo filename={doc.data().filename} onMouseOver={e => (e.target as HTMLVideoElement).play()} onMouseLeave={e => (e.target as HTMLVideoElement).pause()} />
                       </a></Link>

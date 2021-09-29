@@ -2,11 +2,11 @@
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  background: #fbfbfb;
 }
 
 .main {
   flex: 1;
-  padding: 1rem;
 }
 
 .footer {
