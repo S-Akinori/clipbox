@@ -10,11 +10,11 @@ const Login = () => {
   const router = useRouter();
   const [user, loading, error] = useAuthState(auth)
 
-  useEffect(() => {
-    if(user && !loading) {
-      router.push(`/user${user.uid}`)
-    }
-  })
+  // useEffect(() => {
+  //   if(user && !loading) {
+  //     router.push('/video')
+  //   }
+  // })
 
   return (
     <Layout>

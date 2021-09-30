@@ -95,7 +95,7 @@ const CreateVideoPage = () => {
 
   return (
     <Layout>
-      <div className="mx-auto max-w-screen-sm">
+      <div className="p-4 mx-auto max-w-screen-sm">
         {loading && <p>Loading...</p>}
         {user && !loading && 
           <>

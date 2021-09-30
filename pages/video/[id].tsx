@@ -12,6 +12,7 @@ import User from "../../components/User";
 import Button from "../../components/Button";
 import Link from "next/dist/client/link";
 import { GetStaticPaths, GetServerSideProps, GetStaticProps, GetStaticPropsContext } from "next";
+import usePersonalStatus from '../../stripe/usePersonalStatus';
 
 interface Errors {
   download: string
@@ -38,6 +39,7 @@ const ShowVideoPage = () => {
   const {id} = router.query
   const [user, authLoading, authError] = useAuthState(auth)
   const [errors, setErrors] = useState<Errors>({download: ''});
+  const userIsPersonal = usePersonalStatus(user);
   const [query, setQuery] = useState(db.collection('videos').limit(50))
   const [value, loading, err] = useDocument(
     db.doc('/videos/' + id),
@@ -56,6 +58,9 @@ const ShowVideoPage = () => {
   const downloadVideo = async () => {
     if(!user) {
       setErrors({download: 'ログインしてください'})
+      return
+    } else if(!userIsPersonal) {
+      setErrors({download: '決済が完了していません'})
       return
     }
 
@@ -113,51 +118,53 @@ const ShowVideoPage = () => {
   
   return(
     <Layout>
-      {loading && <span>Loading</span>}
-      {value && 
-        <>          
-          <div className="grid md:grid-cols-2 gap-4">
-            <EmbedVideo filename={value.data()?.filename} control/>
+      <div className="p-4">
+        {loading && <span>Loading</span>}
+        {value && 
+          <>          
+            <div className="grid md:grid-cols-2 gap-4">
+              <EmbedVideo filename={value.data()?.filename} control/>
+              <div>
+                <div>
+                  <h1 className="py-4 text-xl font-semibold">{value.data()?.title}</h1>
+                  <p>{value.data()?.description}</p>
+                  <ul className="flex py-2">
+                    {value.data()?.tags.map((tag: string, index: number) => {
+                      return <li key={index} className="py-1 px-2 mx-1 rounded-full bg-gray-200">{tag}</li>
+                    })}
+                  </ul>
+                </div>
+                <div>
+                  <Button id="downloadLink" color="yellow" onClick={() => downloadVideo()}>ダウンロード{Math.round(value.data()?.size / 1000000 * 100) / 100}MB</Button>
+                  <span className="pl-4"><GetAppIcon /> {value.data()?.downloadCount}</span>
+                </div>
+                {errors.download && <span className="block mt-2 text-xs text-red-600">{errors.download}</span>}
+                <div className="py-4">
+                  <User id={value.data()?.uid} />
+                </div>
+              </div>
+            </div>
             <div>
-              <div>
-                <h1 className="py-4 text-xl font-semibold">{value.data()?.title}</h1>
-                <p>{value.data()?.description}</p>
-                <ul className="flex py-2">
-                  {value.data()?.tags.map((tag: string, index: number) => {
-                    return <li key={index} className="py-1 px-2 mx-1 rounded-full bg-gray-200">{tag}</li>
-                  })}
-                </ul>
-              </div>
-              <div>
-                <Button id="downloadLink" color="yellow" onClick={() => downloadVideo()}>ダウンロード{Math.round(value.data()?.size / 1000000 * 100) / 100}MB</Button>
-                <span className="pl-4"><GetAppIcon /> {value.data()?.downloadCount}</span>
-              </div>
-              {errors.download && <span className="block mt-2 text-xs text-red-600">{errors.download}</span>}
-              <div className="py-4">
-                <User id={value.data()?.uid} />
+              <h3 className="font-bold text-lg">関連動画</h3>
+              <div id="videoIndex"  className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {videosLoading && <span>Loading...</span>}
+                {videos && !videosLoading &&
+                  <>
+                  {videos.docs.map((doc, index) => (
+                    <div key={doc.id}>
+                      <Link href={`/video/${doc.id}`}><a>
+                        {doc.data().title}
+                        <EmbedVideo filename={doc.data().filename} onMouseOver={e => (e.target as HTMLVideoElement).play()} onMouseLeave={e => (e.target as HTMLVideoElement).pause()} />
+                        </a></Link>
+                    </div>
+                  ))}
+                </>
+                }
               </div>
             </div>
-          </div>
-          <div>
-            <h3 className="font-bold text-lg">関連動画</h3>
-            <div id="videoIndex"  className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {videosLoading && <span>Loading...</span>}
-              {videos && !videosLoading &&
-                <>
-                {videos.docs.map((doc, index) => (
-                  <div key={doc.id}>
-                    <Link href={`/video/${doc.id}`}><a>
-                      {doc.data().title}
-                      <EmbedVideo filename={doc.data().filename} onMouseOver={e => (e.target as HTMLVideoElement).play()} onMouseLeave={e => (e.target as HTMLVideoElement).pause()} />
-                      </a></Link>
-                  </div>
-                ))}
-              </>
-              }
-            </div>
-          </div>
-        </>
-      }
+          </>
+        }
+      </div>
     </Layout>
   )
 }

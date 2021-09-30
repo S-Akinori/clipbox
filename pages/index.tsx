@@ -17,7 +17,6 @@ import usePersonalStatus from '../stripe/usePersonalStatus';
 const Home = () => {
   const [user, userLoading] = useAuthState(auth);
   const userIsPersonal = usePersonalStatus(user);
-  console.log(userIsPersonal)
   return (
     <Layout>
       <div className="relative">
