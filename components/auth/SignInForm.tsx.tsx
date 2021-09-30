@@ -14,7 +14,7 @@ const uiConfig = {
     firebase.auth.GithubAuthProvider.PROVIDER_ID,
   ],
   callbacks: {
-    signInSuccessWithAuthResult: (authResult: firebase.auth.UserCredential, redirectUrl: string) => {
+    signInSuccessWithAuthResult: (authResult: firebase.auth.UserCredential) => {
       const user = authResult.user
       let photoURL = user?.photoURL
       let displayName = user?.displayName
