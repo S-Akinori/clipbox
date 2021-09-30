@@ -141,6 +141,10 @@ const ShowUserPage = () => {
         <>
           {!userIsPersonal && 
               <div className="py-12 px-4">
+                <div className="flex justify-center items-center">
+                  <img className="rounded-full w-16 h-16 object-cover mr-4" loading="lazy" src={user?.photoURL as string} alt={user?.displayName as string} width="60" height="60" />
+                  <span>{user.displayName}</span>
+                </div>
                 <p className="text-center">決済が完了していません。</p>
                 <div className="md:flex justify-center py-8">
                   <div className="bg-white shadow-md rounded p-4 my-4 mx-4 md:w-1/3">
@@ -185,6 +189,9 @@ const ShowUserPage = () => {
                       <Button className="rounded-full" onClick={() => createCheckoutSession(user.uid)}>このプランで始める</Button>
                     </div>
                   </div>
+                </div>
+                <div className="text-center">
+                  <Button onClick={() => logout()}>ログアウト</Button>
                 </div>
               </div>
           }

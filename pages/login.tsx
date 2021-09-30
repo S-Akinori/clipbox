@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/dist/client/router";
-import Auth from "../components/auth/SignInForm.tsx"
+import SignInForm from "../components/auth/SignInForm.tsx"
 import { auth } from "../firebase/clientApp";
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Layout from "../components/Layout";
@@ -31,7 +31,7 @@ const Login = () => {
           </div>
           
           {loading && <h4>Loadng...</h4>}
-          {!user && <Auth />}
+          {!user && <SignInForm />}
         </div>
       </div>
     </Layout>
