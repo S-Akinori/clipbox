@@ -11,10 +11,13 @@ import CropIcon from '@material-ui/icons/Crop';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { createCheckoutSession } from "../stripe/createCheckoutSession";
+import usePersonalStatus from '../stripe/usePersonalStatus';
 
 
 const Home = () => {
   const [user, userLoading] = useAuthState(auth);
+  const userIsPersonal = usePersonalStatus(user);
+  console.log(userIsPersonal)
   return (
     <Layout>
       <div className="relative">
@@ -89,6 +92,12 @@ const Home = () => {
                 </div>
               </div>
               <p className="font-bold text-2xl text-center">簡単に手早く高品質な動画を作ることができます</p>
+              <div className="py-6">
+                <p className="text-center">動画の参考例</p>
+                <div className="aspect-w-16 aspect-h-9">
+                  <iframe className="max-w-full h-full" width="560" height="360" src="https://www.youtube.com/embed/cN9_ilAAdgw" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -130,10 +139,8 @@ const Home = () => {
                 </tbody>
               </table>
               <div className="text-center">
-                {user && 
-                
-                <Button className="rounded-full" onClick={() => createCheckoutSession(user.uid)}>このプランで始める</Button>
-                }
+                  {/* <Button className="rounded-full" onClick={() => createCheckoutSession(user.uid)}>このプランで始める</Button> */}
+                  <Button href="signup" className="rounded-full">このプランで始める</Button>
               </div>
             </div>
             <div className="bg-white shadow-md rounded p-4 my-4 mx-4 md:w-1/3">

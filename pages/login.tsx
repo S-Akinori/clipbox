@@ -12,7 +12,7 @@ const Login = () => {
 
   useEffect(() => {
     if(user && !loading) {
-      router.push('/')
+      router.push(`/user${user.uid}`)
     }
   })
 

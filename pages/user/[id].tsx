@@ -9,6 +9,7 @@ import { ExpandMore } from "@material-ui/icons";
 import Layout from "../../components/Layout";
 import Button from "../../components/Button"
 import User from "../../components/User"
+import usePersonalStatus from '../../stripe/usePersonalStatus';
 
 interface Messages {
   profile: string,
@@ -18,8 +19,9 @@ interface Messages {
 
 const ShowUserPage = () => {
   const router = useRouter()
-  const { register, handleSubmit, setError, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, setError, watch, formState: { errors }} = useForm();
   const [user, loading, error] = useAuthState(auth)
+  const userIsPersonal = usePersonalStatus(user);
 
   const messages: Messages = {
     profile: '',
@@ -136,6 +138,7 @@ const ShowUserPage = () => {
       {loading && <p>Loading...</p>}
       {user && !loading && 
         <div className="max-w-xl">
+          {!userIsPersonal && <p>決済が完了していません。</p>}
           <div className="py-4 flex items-center">
             <img className="rounded-full w-16 h-16 object-cover mr-4" loading="lazy" src={user?.photoURL as string} alt={user?.displayName as string} width="60" height="60" />
             <span>{user.displayName}</span>

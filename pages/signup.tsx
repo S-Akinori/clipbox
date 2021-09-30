@@ -3,10 +3,16 @@ import Link from 'next/link'
 import SignInForm from '../components/auth/SignInForm.tsx'
 import { auth } from '../firebase/clientApp';
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useRouter } from 'next/dist/client/router';
 import Layout from '../components/Layout';
 
 const SignUpPage = () => {
+  const router = useRouter();
   const [user, loading, error] = useAuthState(auth)
+
+  if(user && !loading) {
+    router.push(`/user/${user.uid}`)
+  }
 
   return (
     <Layout>
