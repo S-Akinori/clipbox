@@ -209,7 +209,7 @@ const ShowUserPage = () => {
                 </div>
               </>
             }
-            {userIsPersonal || isAdmin &&
+            {(userIsPersonal || isAdmin) &&
               <div className="max-w-xl">
                 <div className="py-4 flex items-center">
                   <img className="rounded-full w-16 h-16 object-cover mr-4" loading="lazy" src={user?.photoURL as string} alt={user?.displayName as string} width="60" height="60" />
