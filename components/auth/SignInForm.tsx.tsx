@@ -51,9 +51,9 @@ const uiConfig = {
             })
           }
           createCheckoutSession(user.uid)
+          return false
         }
       }
-      return false
     }
   }
 }

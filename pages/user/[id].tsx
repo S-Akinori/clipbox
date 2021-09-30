@@ -43,10 +43,6 @@ const ShowUserPage = () => {
     router.push('/login');
   }
 
-  if(!loading && user && !userIsPersonal) {
-    router.push('/pricing')
-  }
-
   const logout = () => {
     auth.signOut().then(() => {
       router.push('/')
@@ -151,90 +147,98 @@ const ShowUserPage = () => {
   return(
     <Layout>
       <div className="p-4">
-        {user && (userIsPersonal || isAdmin) && 
+        {user && 
           <div className="max-w-xl">
             <div className="py-4 flex items-center">
               <img className="rounded-full w-16 h-16 object-cover mr-4" loading="lazy" src={user?.photoURL as string} alt={user?.displayName as string} width="60" height="60" />
               <span>{user?.displayName}</span>
             </div>
-            <div className="my-4">
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMore />}
-                  aria-controls="profile--setting"
-                  id="profileSetting"
-                >
-                  <Typography>プロフィール</Typography>
-                </AccordionSummary>
-                <AccordionDetails className="block">
-                  <form onSubmit={handleSubmit(saveProfile)}>
-                    <div className="py-3">id: {user.uid}</div>
-                    <div className="flex py-3">
-                      <span>ユーザー名 : </span>
-                      <div>
-                        <TextField {...register('username', {required: '入力してください'})} defaultValue={user?.displayName} />
-                        {errors.username && <span className="block mt-2 text-xs text-red-600">{errors.username.message}</span>}
+            {!userIsPersonal && 
+              <div>
+                決済が完了していません。
+                <Button href="/pricing">プランを決める</Button>
+              </div>
+            }
+            {userIsPersonal && 
+              <div className="my-4">
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMore />}
+                    aria-controls="profile--setting"
+                    id="profileSetting"
+                  >
+                    <Typography>プロフィール</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails className="block">
+                    <form onSubmit={handleSubmit(saveProfile)}>
+                      <div className="py-3">id: {user.uid}</div>
+                      <div className="flex py-3">
+                        <span>ユーザー名 : </span>
+                        <div>
+                          <TextField {...register('username', {required: '入力してください'})} defaultValue={user?.displayName} />
+                          {errors.username && <span className="block mt-2 text-xs text-red-600">{errors.username.message}</span>}
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-center py-3">
-                      <img id="preview" src={user.photoURL!} width="60" height="60" className="rounded-full w-20 h-20 object-cover" />
-                      <div className="ml-3">
-                        <Input
-                          type="file" 
-                          {...register('avatar', {
-                            validate: {
-                              size: value => value !== null || value[0].size < 2000000 || '容量が大きすぎます',
-                              type: value => value !== null || value[0].type === 'image/png' || value[0].type === 'image/jpg' || value[0].type === 'image/jpeg'|| value[0].type === 'image/gif' || '画像ファイルを選択してください',
-                            }
-                          })}
-                          onChange={(e) => setPreviewAvatar(e)}
-                          />
-                          {errors.avatar && <span className="block mt-2 text-xs text-red-600">{errors.avatar.message}</span>}
+                      <div className="flex items-center py-3">
+                        <img id="preview" src={user.photoURL!} width="60" height="60" className="rounded-full w-20 h-20 object-cover" />
+                        <div className="ml-3">
+                          <Input
+                            type="file" 
+                            {...register('avatar', {
+                              validate: {
+                                size: value => value !== null || value[0].size < 2000000 || '容量が大きすぎます',
+                                type: value => value !== null || value[0].type === 'image/png' || value[0].type === 'image/jpg' || value[0].type === 'image/jpeg'|| value[0].type === 'image/gif' || '画像ファイルを選択してください',
+                              }
+                            })}
+                            onChange={(e) => setPreviewAvatar(e)}
+                            />
+                            {errors.avatar && <span className="block mt-2 text-xs text-red-600">{errors.avatar.message}</span>}
+                        </div>
                       </div>
-                    </div>
-                  <Button id="saveProfileButton" color="yellow" className="mt-3">保存</Button>
-                  <span className="block mt-2 text-xs text-red-600"></span>
-                  </form>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMore />}
-                  aria-controls="email--setting"
-                  id="emailSetting"
-                >
-                  <Typography>メールアドレス</Typography>
-                </AccordionSummary>
-                <AccordionDetails className="block">
-                  <form onSubmit={handleSubmit(saveEmail)}>
-                  <div>
-                      <div className="py-3">現在のメールアドレス : <TextField type="email" {...register('current_email')} defaultValue={user?.email} fullWidth /></div>
-                      <div className="py-3">新しいメールアドレス : <TextField type="email" {...register('new_email')} fullWidth /></div>
-                    </div>
-                    <Button id="saveEmail" color="yellow" className="mt-3">保存</Button>
-                  </form>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMore />}
-                  aria-controls="password--setting"
-                  id="passwordSetting"
-                >
-                  <Typography>パスワード</Typography>
-                </AccordionSummary>
-                <AccordionDetails className="block">
-                  <form onSubmit={handleSubmit(savePassword)}>
+                    <Button id="saveProfileButton" color="yellow" className="mt-3">保存</Button>
+                    <span className="block mt-2 text-xs text-red-600"></span>
+                    </form>
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMore />}
+                    aria-controls="email--setting"
+                    id="emailSetting"
+                  >
+                    <Typography>メールアドレス</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails className="block">
+                    <form onSubmit={handleSubmit(saveEmail)}>
                     <div>
-                      <div className="py-3">現在のパスワード : <TextField type="password" {...register('current_password')} /></div>
-                      <div className="py-3">新しいパスワード : <TextField type="password" {...register('new_password')} /></div>
-                    </div>
-                    <Button id="savePassword" color="yellow" className="mt-3">保存</Button>
-                  </form>
-                </AccordionDetails>
-              </Accordion>
-            </div>
-            <Button onClick={() => logout()}>ログアウト</Button>
+                        <div className="py-3">現在のメールアドレス : <TextField type="email" {...register('current_email')} defaultValue={user?.email} fullWidth /></div>
+                        <div className="py-3">新しいメールアドレス : <TextField type="email" {...register('new_email')} fullWidth /></div>
+                      </div>
+                      <Button id="saveEmail" color="yellow" className="mt-3">保存</Button>
+                    </form>
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMore />}
+                    aria-controls="password--setting"
+                    id="passwordSetting"
+                  >
+                    <Typography>パスワード</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails className="block">
+                    <form onSubmit={handleSubmit(savePassword)}>
+                      <div>
+                        <div className="py-3">現在のパスワード : <TextField type="password" {...register('current_password')} /></div>
+                        <div className="py-3">新しいパスワード : <TextField type="password" {...register('new_password')} /></div>
+                      </div>
+                      <Button id="savePassword" color="yellow" className="mt-3">保存</Button>
+                    </form>
+                  </AccordionDetails>
+                </Accordion>
+              </div>
+            }
+            <Button color="red" onClick={() => logout()}>ログアウト</Button>
           </div>
         }
       </div>
