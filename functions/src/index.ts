@@ -1,5 +1,5 @@
 import * as functions from "firebase-functions";
-import { UserRecord } from "firebase-functions/v1/auth";
+// import { UserRecord } from "firebase-functions/v1/auth";
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
@@ -9,7 +9,7 @@ import fetch from 'node-fetch'
 admin.initializeApp({
   storageBucket: 'default-bucket'
 });
-const auth = admin.auth();
+// const auth = admin.auth();
 const db = admin.firestore();
 const storage = admin.storage()
 
@@ -24,33 +24,33 @@ if(process.env.NODE_ENV === 'development') {
 /**
  * create the user document if a new user signs up
  */
-export const createUserDocument = functions.region('asia-northeast1').auth.user().onCreate((user, context) => {
-  let displayName = user.displayName
-  let photoURL = user.photoURL
-  if(!displayName) { // when email auth
-    const str = "0123456789";
-    const len = 6
-    let userName = "user_";
-    for(let i = 0; i < len; i++){
-      userName += str.charAt(Math.floor(Math.random() * str.length));
-    }
-    displayName = userName
-  }
-  if(!photoURL) { // when email auth
-    photoURL = 'https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/no-avatar.png?alt=media&token=d6885cd9-c468-4c24-860b-70f3a482e23e';
-  }
+// export const createUserDocument = functions.region('asia-northeast1').auth.user().onCreate((user, context) => {
+//   let displayName = user.displayName
+//   let photoURL = user.photoURL
+//   if(!displayName) { // when email auth
+//     const str = "0123456789";
+//     const len = 6
+//     let userName = "user_";
+//     for(let i = 0; i < len; i++){
+//       userName += str.charAt(Math.floor(Math.random() * str.length));
+//     }
+//     displayName = userName
+//   }
+//   if(!photoURL) { // when email auth
+//     photoURL = 'https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/no-avatar.png?alt=media&token=d6885cd9-c468-4c24-860b-70f3a482e23e';
+//   }
 
-  auth.updateUser(user.uid, {
-    displayName: displayName,
-    photoURL: photoURL
-  }).then((userRecord: UserRecord) => {
-    // See the UserRecord reference doc for the contents of userRecord.
-    console.log('Successfully updated user', userRecord.toJSON());
-    db.collection("users")
-      .doc(userRecord.uid)
-      .set(JSON.parse(JSON.stringify(userRecord)));
-  })
-});
+//   auth.updateUser(user.uid, {
+//     displayName: displayName,
+//     photoURL: photoURL
+//   }).then((userRecord: UserRecord) => {
+//     // See the UserRecord reference doc for the contents of userRecord.
+//     console.log('Successfully updated user', userRecord.toJSON());
+//     db.collection("users")
+//       .doc(userRecord.uid)
+//       .set(JSON.parse(JSON.stringify(userRecord)));
+//   })
+// });
 
 /**
  * create tag document when a video is uploaded
