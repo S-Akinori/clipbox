@@ -142,27 +142,6 @@ const Home = () => {
                   <Button href="signup" className="rounded-full">このプランで始める</Button>
               </div>
             </div>
-            <div className="bg-white shadow-md rounded p-4 my-4 mx-4 md:w-1/3">
-              <div className="text-center">
-                <span className="block text-sm">チームプラン</span>
-                <span className="text-3xl font-bold">5,000<span className="text-sm">円/月</span></span>
-              </div>
-              <table className="my-6 w-full">
-                <tbody>
-                  <tr className="border-b-2">
-                    <td className="w-2/3 py-4">ダウンロード数</td>
-                    <td className="w-1/3 py-4">無制限</td>
-                  </tr>
-                  <tr>
-                    <td className="py-4">ユーザー数</td>
-                    <td className="py-4">無制限</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div className="text-center">
-                <Button className="rounded-full">このプランで始める</Button>
-              </div>
-            </div>
           </div>
         </section>
       </div>
