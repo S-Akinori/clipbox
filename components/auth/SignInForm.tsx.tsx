@@ -50,10 +50,10 @@ const uiConfig = {
   }
 }
 
-function SignInScreen() {
+const SignInScreen = () => {
   return (
     <div>
-      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+      <StyledFirebaseAuth uiConfig={uiConfig as any} firebaseAuth={firebase.auth()} />
     </div>
   )
 }
