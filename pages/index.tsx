@@ -21,7 +21,7 @@ const Home = () => {
     <Layout>
       <div className="relative">
         <div className=" md:h-96">
-          <video src="top.mp4" className="object-cover w-full h-full" autoPlay loop></video>
+          <video src="top.mp4" className="object-cover w-full h-full" autoPlay loop muted playsInline></video>
         </div>
         <div className="absolute top-1/4 w-full text-center">
           <h1 className="text-lg md:text-3xl text-white font-bold">動画編集者にコミットした動画サイト</h1>
@@ -104,13 +104,13 @@ const Home = () => {
           <h2 className={`${styles.title_h2} text-xl md:text-3xl font-bold text-center py-4`}>例えばこんな動画があります</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <div>
-              <video src="Cat - 66004.mp4" autoPlay loop></video>
+              <video src="Cat - 66004.mp4" autoPlay loop muted playsInline></video>
             </div>
             <div>
-              <video src="Coffee - 26846.mp4" autoPlay loop></video>
+              <video src="Coffee - 26846.mp4" autoPlay loop muted playsInline></video>
             </div>
             <div>
-              <video src="Chromakey - 11285.mp4" autoPlay loop></video>
+              <video src="Chromakey - 11285.mp4" autoPlay loop muted playsInline></video>
             </div>
           </div>
           <div className="text-center py-8">
