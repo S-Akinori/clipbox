@@ -78,7 +78,7 @@ const Home = () => {
                   「疲れにくい体」なので、激しい動きをしている動画をダウンロードする
                 </div>
                 <div className="md:w-1/2 px-4">
-                  <video src="Boy - 21827.mp4" width="320" height="180" autoPlay loop></video>
+                  <video src="Boy - 21827.mp4" width="320" height="180" autoPlay loop muted playsInline></video>
                 </div>
               </div>
               <div className="md:flex items-center py-8">
