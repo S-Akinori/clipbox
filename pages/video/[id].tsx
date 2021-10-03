@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/dist/client/router";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
-import { db, storage, auth, functions } from "../../firebase/clientApp";
+import { db, auth } from "../../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useDownloadURL } from "react-firebase-hooks/storage";
 import { saveAs } from "file-saver";
 import GetAppIcon from '@material-ui/icons/GetApp';
 import EmbedVideo from "../../components/EmbedVideo";
@@ -11,8 +10,7 @@ import Layout from "../../components/Layout";
 import User from "../../components/User";
 import Button from "../../components/Button";
 import Link from "next/dist/client/link";
-import { GetStaticPaths, GetServerSideProps, GetStaticProps, GetStaticPropsContext } from "next";
-import usePersonalStatus from '../../stripe/usePersonalStatus';
+import useUserStatus from '../../hooks/useUserStatus';
 
 interface Errors {
   download: string
@@ -39,7 +37,7 @@ const ShowVideoPage = () => {
   const {id} = router.query
   const [user, authLoading, authError] = useAuthState(auth)
   const [errors, setErrors] = useState<Errors>({download: ''});
-  const userIsPersonal = usePersonalStatus(user);
+  const userStatus = useUserStatus(user);
   const [query, setQuery] = useState(db.collection('videos').limit(50))
   const [value, loading, err] = useDocument(
     db.doc('/videos/' + id),
@@ -59,7 +57,7 @@ const ShowVideoPage = () => {
     if(!user) {
       setErrors({download: 'ログインしてください'})
       return
-    } else if(!userIsPersonal) {
+    } else if(!userStatus || userStatus == 'free') {
       setErrors({download: '決済が完了していません'})
       return
     }
@@ -68,52 +66,14 @@ const ShowVideoPage = () => {
       const url = `https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/${encodeURIComponent(value.data()?.filename)}?alt=media`;
 
       const data = await fetch(url, {
-          mode: 'cors'
-        });
+        mode: 'cors'
+      });
       const blob = await data.blob()
       saveAs(blob)
       db.doc('/videos/' + id).update({
         downloadCount: value?.data()?.downloadCount + 1
       })
     }
-
-    // const downloadVideo = functions.httpsCallable('downloadVideo')
-    // if(value) {
-    //   downloadVideo({filename: value.data()?.filename})
-    //   .then(response => {
-    //     console.log(response)
-    //     console.log(response.data)
-    //     // const blob = response.data.blob()
-    //     // saveAs(blob)
-    //   })
-    // }
-    // if(value) {
-    //   downloadVideo({filename: value.data()?.filename})
-    //   .then(response => {
-    //     console.log(response)
-    //     console.log(response.data)
-    //     saveAs(response.data)
-    //   }).catch((error) => {
-    //     console.log(error.code);
-    //     console.log( error.message);
-    //     console.log( error.details);
-    //   });
-    // }
-    // storage.ref().child(value?.data()?.filename).getDownloadURL()
-    // .then( async (url) => {
-    //   console.log(url)
-    //   const data = await fetch(url, {
-    //     mode: 'cors'
-    //   });
-    //   const blob = await data.blob()
-    //   saveAs(blob);
-    //   db.doc('/videos/' + id).update({
-    //     downloadCount: value?.data()?.downloadCount + 1
-    //   })
-    // })
-    // .catch((error) => {
-    //   console.log('Error: ', error);
-    // })
   }
   
   return(

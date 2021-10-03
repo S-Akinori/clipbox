@@ -9,7 +9,7 @@ import { ExpandMore } from "@material-ui/icons";
 import Layout from "../../components/Layout";
 import Button from "../../components/Button"
 import User from "../../components/User"
-import usePersonalStatus from '../../stripe/usePersonalStatus';
+import useUserStatus from '../../hooks/useUserStatus';
 
 interface Messages {
   profile: string,
@@ -21,7 +21,7 @@ const ShowUserPage = () => {
   const router = useRouter()
   const { register, handleSubmit, setError, watch, formState: { errors }} = useForm();
   const [user, loading, error] = useAuthState(auth)
-  const userIsPersonal = usePersonalStatus(user);
+  const userStatus = useUserStatus(user);
   const [isAdmin, setIsAdmin] = useState(false)
 
   if(user) {
@@ -153,13 +153,14 @@ const ShowUserPage = () => {
               <img className="rounded-full w-16 h-16 object-cover mr-4" loading="lazy" src={user?.photoURL as string} alt={user?.displayName as string} width="60" height="60" />
               <span>{user?.displayName}</span>
             </div>
-            {!userIsPersonal && 
+            {(!userStatus || userStatus == 'free') ?
               <div>
                 決済が完了していません。
-                <Button href="/pricing">プランを決める</Button>
+                <div className="my-4">
+                  <Button href="/pricing">プランを決める</Button>
+                </div>
               </div>
-            }
-            {userIsPersonal && 
+              :
               <div className="my-4">
                 <Accordion>
                   <AccordionSummary

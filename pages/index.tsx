@@ -11,7 +11,7 @@ import CropIcon from '@material-ui/icons/Crop';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { createCheckoutSession } from "../stripe/createCheckoutSession";
-import usePersonalStatus from '../stripe/usePersonalStatus';
+import usePersonalStatus from '../hooks/useUserStatus';
 
 
 const Home = () => {

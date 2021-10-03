@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { storage, db, auth } from "../../firebase/clientApp";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Input, TextField, InputLabel, Chip } from "@material-ui/core";
+import { Input, TextField, InputLabel, Chip, duration } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { useCollection } from "react-firebase-hooks/firestore";
 
@@ -45,7 +45,6 @@ const CreateVideoPage = () => {
   const onSubmit: SubmitHandler<FormValue> = (data) => {
     data.tags = tagValues
     const tags:string[] = data.tags.split(',')
-    
     if(tags.length > 3) {
       setError('tags', {
         type: 'manual',
@@ -53,32 +52,44 @@ const CreateVideoPage = () => {
       })
       return
     }
-    const storageRef = storage.ref('videos');
-    const fileRef = storageRef.child(data.video[0].name)
-    const metadata: any = {
-      customMetadata: {
-        'uid': user?.uid,
-        'title': data.title,
-        'description': data.description,
-        'tags': tagValues
-      }
-    }
-    fileRef.put(data.video[0], metadata).then((res) => {
-      console.log('uploaded: ', res)
-      db.collection('videos')
-        .add({
-          uid: user?.uid,
-          filename: res.metadata.fullPath,
-          title: res.metadata.customMetadata?.title,
-          description: res.metadata.customMetadata?.description,
-          createdAt: res.metadata.timeCreated,
-          size: res.metadata.size,
-          downloadCount: 0,
-          tags: tags
-        })
 
-      router.push('/video')
-    })
+    const video = document.createElement('video');
+    video.preload = 'metadata';
+    
+    video.onloadedmetadata = () => {
+      window.URL.revokeObjectURL(video.src);
+      const duration = video.duration;
+
+      const storageRef = storage.ref('videos');
+      const fileRef = storageRef.child(data.video[0].name)
+      const metadata: any = {
+        customMetadata: {
+          'uid': user?.uid,
+          'title': data.title,
+          'description': data.description,
+          'tags': tagValues
+        }
+      }
+      fileRef.put(data.video[0], metadata).then((res) => {
+        console.log('uploaded: ', res)
+        db.collection('videos')
+          .add({
+            uid: user?.uid,
+            filename: res.metadata.fullPath,
+            title: res.metadata.customMetadata?.title,
+            description: res.metadata.customMetadata?.description,
+            createdAt: res.metadata.timeCreated,
+            size: res.metadata.size,
+            duration: duration,
+            downloadCount: 0,
+            tags: tags
+          })
+  
+        router.push('/video')
+      })
+    }
+    
+    video.src = URL.createObjectURL(data.video[0])
   }
 
   const onChange = (event: React.ChangeEvent<{}>, value: string[]) => {
