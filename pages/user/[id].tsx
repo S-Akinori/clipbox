@@ -56,7 +56,8 @@ const ShowUserPage = () => {
   const logout = () => {
     auth.signOut().then(() => {
       router.push('/')
-    }).catch((error) => {
+    }).catch((error: any) => {
+      console.log(error)
       alert('エラーが発生しました。')
     })
   }
