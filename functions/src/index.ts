@@ -160,3 +160,9 @@ export const downloadVideo = functions.https.onCall(async (data, context) => {
   
   // return {videoData: videoData.blob()};
 })
+
+exports.addAdminClaim = functions.firestore.document('admin_users/{docID}').onCreate((snap) => {
+  const newAdminUser = snap.data()
+  if (newAdminUser === undefined) return;
+  admin.auth().setCustomUserClaims(newAdminUser.uid, {role: 'admin', stripeRole: 'admin'})
+})

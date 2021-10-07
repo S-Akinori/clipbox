@@ -18,7 +18,7 @@ const Layout = ({children}: Props) => {
       </Head>
       <Header />
       <main className={styles.main}>{children}</main>
-      <footer className={styles.footer}>        
+      <footer className={`${styles.footer} bg-white`}>
         <span>
           Clipbox
         </span>        

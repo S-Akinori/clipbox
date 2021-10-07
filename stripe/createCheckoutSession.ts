@@ -22,7 +22,6 @@ export async function createCheckoutSession(uid: string) {
     if (sessionId) {
       // We have a session, let's redirect to Checkout
       // Init Stripe
-      console.log(sessionId)
       const stripe = await getStripe();
       stripe?.redirectToCheckout({sessionId});
     }

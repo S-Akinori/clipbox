@@ -16,8 +16,6 @@ const uiConfig = {
   ],
   callbacks: {
     signInSuccessWithAuthResult: (authResult: firebase.auth.UserCredential, redirectUrl = '/video') => {
-      console.log(authResult)
-      console.log(redirectUrl)
       if(!authResult.additionalUserInfo?.isNewUser) {
         return true
       } else {
@@ -26,7 +24,6 @@ const uiConfig = {
         let displayName = user?.displayName
         if(user) {
           db.collection('users').doc(user.uid).set(JSON.parse(JSON.stringify(user)))
-          console.log('authResult: ', authResult)
           if(!photoURL || !displayName) {
             if(!photoURL) {
               photoURL = 'https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/no-avatar.png?alt=media&token=d6885cd9-c468-4c24-860b-70f3a482e23e'

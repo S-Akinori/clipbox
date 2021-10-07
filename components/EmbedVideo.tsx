@@ -16,7 +16,7 @@ const EmbedVideo = ({filename, control = false, onMouseOver, onMouseLeave}:Prop)
 
   return (
     <div className="mb-4">
-      {value && <video src={value} controls={control} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} onContextMenu={(e) => {e.preventDefault(); return false}}></video>}
+      {value && <video src={value} controls={control} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} onContextMenu={(e) => {e.preventDefault(); return false}} controlsList="nodownload"></video>}
     </div>
   )
 }

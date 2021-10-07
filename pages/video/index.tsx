@@ -1,22 +1,29 @@
 import React, {useState, useEffect, useCallback} from "react";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/dist/client/link";
-import { db, auth } from "../../firebase/clientApp";
+import firebase, { db, auth } from "../../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useForm } from "react-hook-form";
 import EmbedVideo from "../../components/EmbedVideo";
 import Layout from "../../components/Layout";
-import { FormControl, FormLabel, FormControlLabel, RadioGroup, Radio, Chip, InputLabel, Input, TextField, Drawer } from "@material-ui/core";
+import { FormControl, FormLabel, FormControlLabel, RadioGroup, Radio, Chip, TextField, Drawer } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import Button from "../../components/Button"
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import SearchIcon from '@material-ui/icons/Search';
 import useUserStatus from '../../hooks/useUserStatus';
+import { saveAs } from "file-saver";
 
 interface Tags {
   value: string,
   videoIds: string[]
+}
+
+interface Inputs {
+  keyword: string
 }
 
 const useMediaQuery = (width: number) => {
@@ -45,6 +52,7 @@ const Video = () => {
   const router = useRouter()
   const [user, userLoading, userError] = useAuthState(auth)
   const userStatus = useUserStatus(user);
+  const { register, handleSubmit } = useForm<Inputs>();
   const collectionRef = db.collection('videos')
   const [condition, setCondition] = useState('')
   const [currentTags, setCurrentTags] = useState<string[]>([])
@@ -66,10 +74,6 @@ const Video = () => {
 
   const toggleDrawer = (open: boolean) => {
     setDrawerState(open)
-  }
-
-  const onMouseOver = (e: React.MouseEvent<Element>) => {
-    (e.target as HTMLVideoElement).play()
   }
 
   const handleConditionValue = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,8 +118,13 @@ const Video = () => {
     }
   }
 
-  const downloadVideo = async (e: React.MouseEvent<HTMLElement>) => {
+  const handleSearchKeyword = (data: Inputs) => {
+    if(data.keyword) {
+      setQuery(collectionRef.where('keywords', 'array-contains-any', [data.keyword]).limit(50))
+    }
+  }
 
+  const downloadVideo = async (e: React.MouseEvent<HTMLElement>) => {
     const docData = JSON.parse((e.currentTarget.dataset.doc as string))
     const id = e.currentTarget.dataset.id
 
@@ -131,15 +140,18 @@ const Video = () => {
       const url = `https://firebasestorage.googleapis.com/v0/b/my-react-project-db288.appspot.com/o/${encodeURIComponent(docData.filename)}?alt=media`;
 
       const data = await fetch(url, {
-          mode: 'cors'
-        });
+        mode: 'cors'
+      });
       const blob = await data.blob()
       saveAs(blob)
       db.doc('/videos/' + id).update({
         downloadCount: docData.downloadCount + 1
       })
+
+      db.doc('/users/' + user.uid).update({
+        downloadedVideos: firebase.firestore.FieldValue.arrayUnion({'id': id, 'filename': docData.filename})
+      })
     }
-    console.log('downloaded!')
   }
 
   return (
@@ -150,6 +162,14 @@ const Video = () => {
           <Drawer anchor='left' open={(isBreakPoint) ? true : drawerState} onClose={() => toggleDrawer(false)} variant={(isBreakPoint) ? 'persistent' : 'temporary'} classes={{paper: 'p-4 md:top-20 md:h-3/4 w-72 md:w-1/5'}}>
             <Button className="absolute top-2 right-2 z-50 md:hidden" onClick={() => toggleDrawer(false)}><ArrowLeftIcon /></Button>
             <FormControl component="fieldset">
+              <div className="mb-4 md:hidden">
+                <FormLabel>検索</FormLabel>
+                <TextField 
+                  variant="filled"
+                  label="検索"
+                  className="w-full"
+                />
+              </div>
               <FormLabel>条件</FormLabel>
               <RadioGroup aria-label="condition" name="condition" value={condition} onChange={handleConditionValue} >
                 <FormControlLabel value="new" control={<Radio />} label="新しい順" />
@@ -180,31 +200,41 @@ const Video = () => {
           {loading && <p>Loading...</p>}
           {!loading && videos && 
             <>
-            <h2 className="p-4 text-xl font-bold">Videos</h2>
-            <div id="videoIndex"  className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {error && <strong>Error: {JSON.stringify(error)}</strong>}
-              {loading && <span>Loading...</span>}
-              {videos && (
-                <>
-                  {videos.docs.map((doc, index) => (
-                    <div key={doc.id}>
-                      <div className="relative">
-                        <button className="absolute top-8 right-2 bg-black bg-opacity-80 text-white duration-300 focus:outline-none hover:bg-opacity-100 z-10" onClick={downloadVideo} data-doc={JSON.stringify(doc.data())} data-id={doc.id}>
-                          <GetAppIcon />
-                        </button>
-                        <Link href={`video/${doc.id}`}>
-                          <a>
-                            {doc.data().title}
-                            <EmbedVideo filename={doc.data().filename} onMouseOver={e => onMouseOver(e)} onMouseLeave={e => (e.target as HTMLVideoElement).pause()} />
-                          </a>
-                        </Link>
-                        <div className="absolute bottom-0 px-3 bg-black bg-opacity-60 w-full text-right text-white">00:{Math.floor(doc.data().duration)}</div>
+              <form onSubmit={handleSubmit(handleSearchKeyword)}>
+                <div className="w-full hidden md:flex items-center mb-4">
+                  <TextField 
+                    {...register("keyword")}
+                    variant="filled"
+                    label="検索"
+                    className="w-1/2"
+                  />
+                  <button className="px-1 mx-1 text-white font-semibold rounded-lg shadow-md duration-300 focus:outline-none focus:ring-2 focus:ring-opacity-75 bg-yellow-500 hover:bg-yellow-400 focus:ring-yellow-400"><SearchIcon /></button>
+                </div>
+              </form>
+              <div id="videoIndex"  className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {error && <strong>Error: {JSON.stringify(error)}</strong>}
+                {loading && <span>Loading...</span>}
+                {videos && (
+                  <>
+                    {videos.docs.map((doc, index) => (
+                      <div key={doc.id}>
+                        <div className="relative">
+                          <button className="absolute top-8 right-2 bg-black bg-opacity-80 text-white duration-300 focus:outline-none hover:bg-opacity-100 z-10" onClick={downloadVideo} data-doc={JSON.stringify(doc.data())} data-id={doc.id}>
+                            <GetAppIcon />
+                          </button>
+                          <Link href={`video/${doc.id}`}>
+                            <a>
+                              {doc.data().title}
+                              <EmbedVideo filename={doc.data().filename} onMouseOver={e => (e.target as HTMLVideoElement).play()} onMouseLeave={e => (e.target as HTMLVideoElement).pause()} />
+                            </a>
+                          </Link>
+                          <div className="absolute bottom-0 px-3 bg-black bg-opacity-60 w-full text-right text-white">00:{Math.floor(doc.data().duration)}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </>
-              )}
-            </div>
+                    ))}
+                  </>
+                )}
+              </div>
             </>
           }
         </div>

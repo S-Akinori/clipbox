@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/dist/client/router";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
-import { db, auth } from "../../firebase/clientApp";
+import firebase, { db, auth } from "../../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { saveAs } from "file-saver";
 import GetAppIcon from '@material-ui/icons/GetApp';
@@ -73,6 +73,10 @@ const ShowVideoPage = () => {
       db.doc('/videos/' + id).update({
         downloadCount: value?.data()?.downloadCount + 1
       })
+
+      db.doc('/users/' + user.uid).update({
+        downloadedVideos: firebase.firestore.FieldValue.arrayUnion({'id': id, 'filename': value.data()?.filename})
+      })
     }
   }
   
@@ -112,10 +116,18 @@ const ShowVideoPage = () => {
                   <>
                   {videos.docs.map((doc, index) => (
                     <div key={doc.id}>
-                      <Link href={`/video/${doc.id}`}><a>
-                        {doc.data().title}
-                        <EmbedVideo filename={doc.data().filename} onMouseOver={e => (e.target as HTMLVideoElement).play()} onMouseLeave={e => (e.target as HTMLVideoElement).pause()} />
-                        </a></Link>
+                      <div className="relative">
+                        <button className="absolute top-8 right-2 bg-black bg-opacity-80 text-white duration-300 focus:outline-none hover:bg-opacity-100 z-10" onClick={downloadVideo} data-doc={JSON.stringify(doc.data())} data-id={doc.id}>
+                          <GetAppIcon />
+                        </button>
+                        <Link href={`video/${doc.id}`}>
+                          <a>
+                            {doc.data().title}
+                            <EmbedVideo filename={doc.data().filename} onMouseOver={e => (e.target as HTMLVideoElement).play()} onMouseLeave={e => (e.target as HTMLVideoElement).pause()} />
+                          </a>
+                        </Link>
+                        <div className="absolute bottom-0 px-3 bg-black bg-opacity-60 w-full text-right text-white">00:{Math.floor(doc.data().duration)}</div>
+                      </div>
                     </div>
                   ))}
                 </>

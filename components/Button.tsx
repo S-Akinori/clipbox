@@ -15,7 +15,7 @@ const Button = ({id, color = 'yellow', href = '', download = false, onClick, chi
   const buttonClass: string = (color) ? `py-2 px-4 text-white font-semibold rounded-lg shadow-md duration-300 focus:outline-none focus:ring-2 focus:ring-opacity-75 bg-${color}-500 hover:bg-${color}-400 focus:ring-${color}-400 ${className}` : `py-2 px-4 font-semibold rounded-lg shadow-md duration-300 focus:outline-none hover:bg-gray-200 ${className}`
   return (
     <>
-      {href && <a id={id} href={href} className={buttonClass} onClick={onClick} download={download}>{children}</a>}
+      {href && <Link href={href}><a id={id} className={buttonClass} onClick={onClick} download={download}>{children}</a></Link>}
       {!href && <button id={id} className={buttonClass} onClick={onClick}>{children}</button>}
     </>
   )

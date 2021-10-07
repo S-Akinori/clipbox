@@ -43,6 +43,17 @@ const CreateVideoPage = () => {
   }
 
   const onSubmit: SubmitHandler<FormValue> = (data) => {
+    const title = data.title
+    let keywords: string[] = []
+    for(let i=2; i < 6; i++) {
+      if(i <= title.length) {
+        for(let j = 0; j < title.length - (i - 1); j++) {
+            const keyword = title.slice(j, j + i)
+            keywords.push(keyword)
+        }
+      }
+    }
+    
     data.tags = tagValues
     const tags:string[] = data.tags.split(',')
     if(tags.length > 3) {
@@ -72,11 +83,13 @@ const CreateVideoPage = () => {
       }
       fileRef.put(data.video[0], metadata).then((res) => {
         console.log('uploaded: ', res)
+
         db.collection('videos')
           .add({
             uid: user?.uid,
             filename: res.metadata.fullPath,
             title: res.metadata.customMetadata?.title,
+            keywords: keywords,
             description: res.metadata.customMetadata?.description,
             createdAt: res.metadata.timeCreated,
             size: res.metadata.size,
@@ -84,7 +97,6 @@ const CreateVideoPage = () => {
             downloadCount: 0,
             tags: tags
           })
-  
         router.push('/video')
       })
     }

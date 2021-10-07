@@ -1,0 +1,25 @@
+{
+  "name": "videos/Boy - 21827.mp4",
+  "bucket": "default-bucket",
+  "contentType": "video/mp4",
+  "metageneration": 1,
+  "generation": 1633356561093,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "customMetadata": {
+    "uid": "fA1IGUqupkpAvIsiWItNuzy8cMuP",
+    "title": "キーワードの動作確認",
+    "description": "キーワードがうまく保存されていますか？",
+    "tags": "キーワード"
+  },
+  "downloadTokens": [
+    "b7445b28-7b9c-436c-8c20-904250d80737"
+  ],
+  "timeCreated": "2021-10-04T14:09:21.092Z",
+  "updated": "2021-10-04T14:09:21.111Z",
+  "size": 1843450,
+  "md5Hash": "hQC7+YZlHvZ1wLgoXJTijg==",
+  "crc32c": "4066980784"
+}

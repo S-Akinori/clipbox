@@ -7,9 +7,6 @@ interface LoginData {
 
 const LoginForm = () => {
   const {register, handleSubmit, formState: {errors}} = useForm();
-  const onSubmit = (data: LoginData) => {
-    console.log(data);
-  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

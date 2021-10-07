@@ -20,7 +20,7 @@ function User({id, isImage = true, isName = true}: Prop): ReactElement {
   }
 
   return (
-    <div>
+    <div className="inline-block">
       {value && 
         <Link href={`/user/${id}`}>
           <a className="flex items-center">
