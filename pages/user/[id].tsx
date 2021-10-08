@@ -254,7 +254,7 @@ const ShowUserPage = () => {
                   <h3>ダウンロード履歴</h3>
                   {userDoc &&
                     <div className="grid grid-cols-4 gap-4">
-                      {(userDoc.downloadedVideos as DownloadedVideo[]).slice(0, 8).map((video, index: number) => {
+                      {userDoc.downloadedVideos && (userDoc.downloadedVideos as DownloadedVideo[]).slice(0, 8).map((video, index: number) => {
                         return (
                           <Link href={`/video/${video.id}`}>
                             <a>
