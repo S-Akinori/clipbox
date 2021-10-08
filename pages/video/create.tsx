@@ -7,6 +7,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Input, TextField, InputLabel, Chip, duration } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { useCollection } from "react-firebase-hooks/firestore";
+import useUserStatus from '../../hooks/useUserStatus';
 
 interface FormValue {
   title: string,
@@ -21,7 +22,6 @@ interface Tags {
 }
 
 const CreateVideoPage = () => {
-
   let tags: Array<Tags> = []
   const [tagsCollection, tagsCollectionLoading, tagsCollectionError] = useCollection(
     db.collection('tags'), {}
@@ -37,8 +37,10 @@ const CreateVideoPage = () => {
   const [user, loading, error] = useAuthState(auth)
   const [tagValues, setTagValues] = useState('')
   const {register, handleSubmit, setError, clearErrors, formState: {errors}} = useForm<FormValue>();
+  const userStatus = useUserStatus(user);
+  const [isAdmin, setIsAdmin] = useState(false)
 
-  if(!loading && !user) {
+  if(!loading && !user && !isAdmin) {
     router.push('/login');
   }
 
