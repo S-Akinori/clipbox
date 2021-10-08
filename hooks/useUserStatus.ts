@@ -3,7 +3,7 @@ import firebase from "../firebase/clientApp";
 import fetchUserStatus from "./fetchUserStatus";
 
 export default function useUserStatus(user: firebase.User | null | undefined) {
-  const [userStatus, setUserStatus] = useState<string | undefined>('free');
+  const [userStatus, setUserStatus] = useState<string | undefined>('');
 
   useEffect(() => {
     if (user) {

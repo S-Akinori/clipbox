@@ -20,7 +20,6 @@ interface Tags {
   value: string,
   videoIds: string[]
 }
-
 const CreateVideoPage = () => {
   let tags: Array<Tags> = []
   const [tagsCollection, tagsCollectionLoading, tagsCollectionError] = useCollection(
@@ -40,8 +39,15 @@ const CreateVideoPage = () => {
   const userStatus = useUserStatus(user);
   const [isAdmin, setIsAdmin] = useState(false)
 
-  if(!loading && !user && !isAdmin) {
-    router.push('/login');
+  if(user) {
+    user.getIdTokenResult().then((idTokenResult) => {
+      if(idTokenResult.claims.role === 'admin' || idTokenResult.claims.stripeRole === 'admin') {
+        setIsAdmin(true)
+      } else {
+        console.log('redirected')
+        router.push('/user/' + user?.uid);
+      }
+    })
   }
 
   const onSubmit: SubmitHandler<FormValue> = (data) => {
@@ -122,7 +128,8 @@ const CreateVideoPage = () => {
     <Layout>
       <div className="p-4 mx-auto max-w-screen-sm">
         {loading && <p>Loading...</p>}
-        {user && !loading && 
+        {user && !loading && !isAdmin && <p>管理者のみ利用できます</p>}
+        {user && !loading && isAdmin && 
           <>
             <h1 className="text-2xl font-bold py-4">動画アップロード</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -167,7 +174,6 @@ const CreateVideoPage = () => {
                 />
                 {errors.tags && <span className="block mt-2 text-xs text-red-600">{errors.tags.message}</span>}
               </div>
-              
               <button className="inline-block py-2 px-4 bg-indigo-500 text-white font-semibold rounded-lg shadow-md duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">Submit</button>
             </form>
           </>

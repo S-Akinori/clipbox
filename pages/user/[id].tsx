@@ -35,11 +35,9 @@ const ShowUserPage = () => {
     db.doc('/users/' + user?.uid)
   )
 
-  console.log(userStatus)
-
   if(user) {
     user.getIdTokenResult().then((idTokenResult) => {
-      if(idTokenResult.claims.role === 'admin') {
+      if(idTokenResult.claims.role === 'admin' || idTokenResult.claims.stripeRole === 'admin') {
         setIsAdmin(true)
       }
     })
