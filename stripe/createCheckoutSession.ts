@@ -10,8 +10,8 @@ export async function createCheckoutSession(uid: string) {
     .collection("checkout_sessions")
     .add({
       // replace the price_XXX value with the correct value from your product in stripe.
-      price: "price_1Jf0NqFH1KGSZSz1vSEQYeP4",
-      tax_rates: ['txr_1Jf2zoFH1KGSZSz1I9k3cBaq'],
+      price: "price_1JiAsrFH1KGSZSz1rrkxocYj",
+      tax_rates: ['txr_1JiAtWFH1KGSZSz1bsq0MfSA'],
       success_url: window.location.origin,
       cancel_url: window.location.origin,
     });
