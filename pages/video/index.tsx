@@ -120,7 +120,9 @@ const Video = () => {
 
   const handleSearchKeyword = (data: Inputs) => {
     if(data.keyword) {
-      setQuery(collectionRef.where('keywords', 'array-contains-any', [data.keyword]).limit(50))
+      const keywords = data.keyword.split(' ')
+      console.log(keywords)
+      setQuery(collectionRef.where('keywords', 'array-contains-any', keywords).limit(50))
     }
   }
 

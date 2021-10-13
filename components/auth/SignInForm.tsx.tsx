@@ -13,6 +13,9 @@ const uiConfig = {
       requireDisplayName: false
     },
     firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID
   ],
   callbacks: {
     signInSuccessWithAuthResult: (authResult: firebase.auth.UserCredential, redirectUrl = '/video') => {
